@@ -1,0 +1,13 @@
+# puppet
+logfile /var/log/ha-log
+logfacility local0
+keepalive <%= keepalive %>
+deadtime <%= deadtime %>
+warntime <%= warntime %>
+initdead <%= initdead %>
+<% nodes.each do |n| %>ucast <%=n["hanetif"]%> <%=n["realip"]%>
+<%end%>
+<% hacfdirectives.each do |d| %><%=d%>
+<% end %>
+node <% nodes.each do |n| %><%= n["name"] %> <%end%>
+

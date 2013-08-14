@@ -1,0 +1,3 @@
+# puppet
+<% nodes.each do |n| %><%if n["svcip"]%><%=n["name"]%> IPaddr2::<%=n["svcip"]%><%services.each do |s|%> <%=s%><%end%><%end%>
+<%end%>
